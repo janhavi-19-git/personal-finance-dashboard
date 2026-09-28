@@ -12,7 +12,7 @@ A beginner friendly personal finance dashboard built with HTML , CSS , and JAVAS
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body></body>
 
     <div class="container">
 
