@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Finance Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>💰 Personal Finance Dashboard</h1>
+
+        <p class="subtitle">
+            Track your income, expenses and savings.
+        </p>
+
+        <!-- Income -->
+        <div class="card">
+            <h2>💵 Monthly Income</h2>
+
+            <input
+                type="number"
+                id="income"
+                placeholder="Enter your monthly income"
+            >
+        </div>
+
+        <!-- Expenses -->
+        <div class="card">
+
+            <h2>💸 Monthly Expenses</h2>
+
+            <label>🏠 Rent</label>
+            <input type="number" id="rent" placeholder="₹">
+
+            <label>🍔 Food</label>
+            <input type="number" id="food" placeholder="₹">
+
+            <label>🚗 Travel</label>
+            <input type="number" id="travel" placeholder="₹">
+
+            <label>🛍️ Shopping</label>
+            <input type="number" id="shopping" placeholder="₹">
+
+            <label>📚 Education</label>
+            <input type="number" id="education" placeholder="₹">
+
+            <label>🎮 Entertainment</label>
+            <input type="number" id="entertainment" placeholder="₹">
+
+        </div>
+
+        <button onclick="calculateFinance()">
+            Calculate My Finances
+        </button>
+
+        <!-- Results -->
+        <div class="results">
+
+            <h2>📊 My Results</h2>
+
+            <div class="result-box">
+                <span>Total Expenses</span>
+                <strong>₹<span id="total">0</span></strong>
+            </div>
+
+            <div class="result-box">
+                <span>Money Remaining</span>
+                <strong>₹<span id="remaining">0</span></strong>
+            </div>
+
+            <div class="result-box">
+                <span>Savings Percentage</span>
+                <strong><span id="savings">0</span>%</strong>
+            </div>
+
+            <p id="message"></p>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
