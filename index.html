@@ -1,93 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Personal Finance Dashboard</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <main class="container">
+        <header class="hero">
+            <h1>💰 Personal Finance Dashboard</h1>
+            <p class="subtitle">Type your numbers and watch your savings update live.</p>
+        </header>
 
-    <div class="container">
+        <div class="layout">
+            <section class="inputs">
+                <div class="card">
+                    <h2>💵 Monthly Income</h2>
+                    <input type="number" id="income" min="0" inputmode="decimal" placeholder="Enter your monthly income" aria-label="Monthly income">
+                </div>
 
-        <h1>💰 Personal Finance Dashboard</h1>
+                <div class="card">
+                    <h2>💸 Monthly Expenses</h2>
+                    <div class="grid">
+                        <div class="field"><label for="rent">🏠 Rent</label><input type="number" id="rent" min="0" inputmode="decimal" placeholder="₹"></div>
+                        <div class="field"><label for="food">🍔 Food</label><input type="number" id="food" min="0" inputmode="decimal" placeholder="₹"></div>
+                        <div class="field"><label for="travel">🚗 Travel</label><input type="number" id="travel" min="0" inputmode="decimal" placeholder="₹"></div>
+                        <div class="field"><label for="shopping">🛍️ Shopping</label><input type="number" id="shopping" min="0" inputmode="decimal" placeholder="₹"></div>
+                        <div class="field"><label for="education">📚 Education</label><input type="number" id="education" min="0" inputmode="decimal" placeholder="₹"></div>
+                        <div class="field"><label for="entertainment">🎮 Entertainment</label><input type="number" id="entertainment" min="0" inputmode="decimal" placeholder="₹"></div>
+                    </div>
+                </div>
 
-        <p class="subtitle">
-            Track your income, expenses and savings.
-        </p>
+                <div class="actions">
+                    <button id="calcBtn" type="button" onclick="calculateFinance()">Calculate My Finances</button>
+                    <button id="resetBtn" type="button" class="ghost" onclick="resetFinance()">Reset</button>
+                </div>
+                <p id="error" class="error" role="alert"></p>
+            </section>
 
-        <!-- Income -->
-        <div class="card">
-            <h2>💵 Monthly Income</h2>
+            <section class="results" aria-live="polite">
+                <h2>📊 My Results</h2>
 
-            <input
-                type="number"
-                id="income"
-                placeholder="Enter your monthly income"
-            >
+                <div class="result-box">
+                    <span>Total Expenses</span>
+                    <strong>₹<span id="total">0</span></strong>
+                </div>
+                <div class="result-box">
+                    <span>Money Remaining</span>
+                    <strong>₹<span id="remaining">0</span></strong>
+                </div>
+                <div class="result-box">
+                    <span>Savings Percentage</span>
+                    <strong><span id="savings">0</span>%</strong>
+                </div>
+
+                <div class="meter" aria-hidden="true"><div id="meterFill" class="meter-fill"></div></div>
+                <p id="message" class="message">Enter your income to begin.</p>
+
+                <h3>Where your money goes</h3>
+                <div id="breakdown" class="breakdown"></div>
+            </section>
         </div>
-
-        <!-- Expenses -->
-        <div class="card">
-
-            <h2>💸 Monthly Expenses</h2>
-
-            <label>🏠 Rent</label>
-            <input type="number" id="rent" placeholder="₹">
-
-            <label>🍔 Food</label>
-            <input type="number" id="food" placeholder="₹">
-
-            <label>🚗 Travel</label>
-            <input type="number" id="travel" placeholder="₹">
-
-            <label>🛍️ Shopping</label>
-            <input type="number" id="shopping" placeholder="₹">
-
-            <label>📚 Education</label>
-            <input type="number" id="education" placeholder="₹">
-
-            <label>🎮 Entertainment</label>
-            <input type="number" id="entertainment" placeholder="₹">
-
-        </div>
-
-        <button onclick="calculateFinance()">
-            Calculate My Finances
-        </button>
-
-        <!-- Results -->
-        <div class="results">
-
-            <h2>📊 My Results</h2>
-
-            <div class="result-box">
-                <span>Total Expenses</span>
-                <strong>₹<span id="total">0</span></strong>
-            </div>
-
-            <div class="result-box">
-                <span>Money Remaining</span>
-                <strong>₹<span id="remaining">0</span></strong>
-            </div>
-
-            <div class="result-box">
-                <span>Savings Percentage</span>
-                <strong><span id="savings">0</span>%</strong>
-            </div>
-
-            <p id="message"></p>
-
-        </div>
-
-    </div>
-
+    </main>
     <script src="script.js"></script>
-
 </body>
-
 </html>
